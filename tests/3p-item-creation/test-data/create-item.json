@@ -1,0 +1,432 @@
+{
+"MessageEventType" : "CREATE_ITEM",
+"Item" : {
+"ItemType" : "Regular",
+"ItemNumber" : "",
+"ItemRequestNumber" : "N1000000000005",
+"ItemStatus" : "",
+"StandardUom" : "EA",
+"SizeCase" : "3",
+"SizeInner" : "1",
+"SubMakroUnit" : "34",
+"SubUnit" : "35",
+"SubUnitPack" : "กก.",
+"BuyingType" : "Sell only",
+"Division" : "DF",
+"Dept" : "9",
+"DepartmentName" : "DRINK & BEVERAGE",
+"Class" : "45",
+"ClassName" : "SOFT DRINK",
+"SubClass" : "12",
+"SubClassName" : "COLA (BOTTLE/RETURNABLE)",
+"CustomerPack" : "EA",
+"MakroUnitMU" : "2",
+"BuyingUnitBU" : "5",
+"PLUCode" : "",
+"InventoryInd" : "",
+"DeliveryType" : "DSD",
+"mulegalprice" : "0.00",
+"bulegalprice" : "0.00",
+"Barcodes" : [ {
+"Barcode" : "1000000000005",
+"BarcodeType" : "",
+"PrimaryBarcodeInd" : "Y"
+} ],
+"ItemAttribute" : [ {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "1008",
+"AttributeDesc" : "Gatekeeper Status",
+"AttributeValue" : "5"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "11",
+"AttributeDesc" : "Buyer ID",
+"AttributeValue" : "72"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "39",
+"AttributeDesc" : "Buyer Type",
+"AttributeValue" : "1"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "5401",
+"AttributeDesc" : "Channel - Offline",
+"AttributeValue" : "1"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "29",
+"AttributeDesc" : "Channel - MakroPro",
+"AttributeValue" : "1"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "241",
+"AttributeDesc" : "Channel - Assisted Sales",
+"AttributeValue" : "1"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "14",
+"AttributeDesc" : "Item Assortment - IN/OUT",
+"AttributeValue" : "2"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1000",
+"AttributeDesc" : "Brand(TH)",
+"AttributeValue" : "เอสโคล่า"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "10",
+"AttributeDesc" : "Brand(EN)",
+"AttributeValue" : "Est Cola"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1001",
+"AttributeDesc" : "Product Type - Segment (TH)",
+"AttributeValue" : "น้ำดื่ม"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "21",
+"AttributeDesc" : "Product Type - Segment (EN)",
+"AttributeValue" : "WATER"
+},
+{
+"AttributeType" : "UDA-FF",
+"AttributeID" : "8001",
+"AttributeDesc" : "3P Seller",
+"AttributeValue" : "3P Seller"
+},
+ {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1002",
+"AttributeDesc" : "Measurement (Size/Grade) (TH)",
+"AttributeValue" : "0.5 มม."
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1007",
+"AttributeDesc" : "Measurement (Size/Grade) (EN)",
+"AttributeValue" : "0.5 mm"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1003",
+"AttributeDesc" : "Model - Sub Segment (TH)",
+"AttributeValue" : "พีชเปรี้ยวหวาน"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "22",
+"AttributeDesc" : "Model - Sub Segment (EN)",
+"AttributeValue" : "Sour Sweet Peach"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1004",
+"AttributeDesc" : "Color/Flavor (TH)",
+"AttributeValue" : "Orange"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1006",
+"AttributeDesc" : "Color/Flavor (EN)",
+"AttributeValue" : "Orange"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "23",
+"AttributeDesc" : "Item Volume/Quantity Per Unit",
+"AttributeValue" : "1"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "4509",
+"AttributeDesc" : "Item Volume/Quantity Classification (EN)",
+"AttributeValue" : "kg"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "107",
+"AttributeDesc" : "Suggested Online Product Description (EN)",
+"AttributeValue" : "Est Cola WATER 0.5 mm Sour Sweet Peach Orange 1 kg X 2"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "106",
+"AttributeDesc" : "Suggested Online Product Description (TH)",
+"AttributeValue" : "เอสโคล่า น้ำดื่ม 0.5 มม. พีชเปรี้ยวหวาน Orange 1 กก. X 2"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "17",
+"AttributeDesc" : "Halal",
+"AttributeValue" : "0"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "5",
+"AttributeDesc" : "Expire date (days)",
+"AttributeValue" : "0"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "4",
+"AttributeDesc" : "Law Exclusion",
+"AttributeValue" : ""
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "73",
+"AttributeDesc" : "Exit Plan",
+"AttributeValue" : "1"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "4526",
+"AttributeDesc" : "Item code to be Discon",
+"AttributeValue" : "Products Category test "
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "4514",
+"AttributeDesc" : "Single Unit (QTY) (Buddy Mart, Fresh@Makro)",
+"AttributeValue" : "Single Unit (QTY) (Buddy Mart, Fresh@Makro)"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "4515",
+"AttributeDesc" : "Single Description",
+"AttributeValue" : "Single description"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "4516",
+"AttributeDesc" : "Product Information/Description (EN)",
+"AttributeValue" : "Est Cola WATER 0.5 mm 2"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "4517",
+"AttributeDesc" : "Product Information/Description (TH)",
+"AttributeValue" : "เอสโคล่า น้ำดื่ม 0.5 มม."
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1013",
+"AttributeDesc" : "Minimum Order Quantity",
+"AttributeValue" : "0"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1009",
+"AttributeDesc" : "Product Barcode (Single) Text",
+"AttributeValue" : "6789009876"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "1010",
+"AttributeDesc" : "Product Barcode (Case) Text",
+"AttributeValue" : "6789009877"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "80",
+"AttributeDesc" : "Tare Weight (KG)",
+"AttributeValue" : "28"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "26",
+"AttributeDesc" : "POG Name",
+"AttributeValue" : "test"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "1011",
+"AttributeDesc" : "Truck Temperature",
+"AttributeValue" : "1"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "50",
+"AttributeDesc" : "New line Budget (AVG Baht/Month)*",
+"AttributeValue" : "6"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "74",
+"AttributeDesc" : "Arrival month",
+"AttributeValue" : "11/2025"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "108",
+"AttributeDesc" : "Category Name (TH)",
+"AttributeValue" : "Category Name-TH"
+}, {
+"AttributeType" : "UDA-FF",
+"AttributeID" : "109",
+"AttributeDesc" : "Category Name (TH)",
+"AttributeValue" : "Category Name-EN"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "42",
+"AttributeDesc" : "Customer Target",
+"AttributeValue" : "6"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "43",
+"AttributeDesc" : "Product situation",
+"AttributeValue" : "0"
+}, {
+"AttributeType" : "UDA-LV",
+"AttributeID" : "1",
+"AttributeDesc" : "Aging Condition",
+"AttributeValue" : "2"
+} ],
+"ItemDescriptions" : [ {
+"HTS" : [ { } ],
+"ItemDesc" : "เอสโคล่า น้ำดื่ม 0.5 มม.",
+"ItemDescSecondary" : "Est Cola WATER 0.5 mm 2",
+"ShortDesc" : "",
+"ItemImage" : [ {
+"ImageType" : "",
+"ImageURL" : ""
+} ],
+"SearchTags" : [ {
+"key" : "ProdKeyword"
+} ],
+"Vat" : [ {
+"VATCode" : "C",
+"VATRate" : "0",
+"VATType" : "Cost35"
+}, {
+"VATCode" : "S",
+"VATRate" : "7",
+"VATType" : "Retail35"
+} ]
+} ],
+"ItemSupplier" : [ {
+"SupplierCode" : "20047",
+"SupplierItemNumber" : "",
+"ItemSupplierManufCountry" : "AF",
+"ItemSupplierSourceCountry" : "TH",
+"SupplierName" : "บจก.ไทยน้ำทิพย์คอมเมอร์เชียล-1",
+"IsActive" : "Y",
+"InitialCost" : "1",
+"InnerPackSize" : "1",
+"concessionRate" : "0",
+"sellingpriceincvat" : "2",
+"ItemDimensions" : [ {
+"dimType" : "SINGLE",
+"height" : "10",
+"length" : "8",
+"width" : "9",
+"lwh_uom" : "CM",
+"net_weight" : "12",
+"gross_weight" : "11",
+"weight_uom" : "G",
+"liquid_volume" : "",
+"liquid_volume_uom" : "",
+"tare_weight" : "",
+"tare_type" : ""
+}, {
+"dimType" : "MU",
+"height" : "15",
+"length" : "13",
+"width" : "14",
+"lwh_uom" : "CM",
+"net_weight" : "17",
+"gross_weight" : "16",
+"weight_uom" : "G",
+"liquid_volume" : "",
+"liquid_volume_uom" : "",
+"tare_weight" : "",
+"tare_type" : ""
+}, {
+"dimType" : "CASE",
+"height" : "25",
+"length" : "100",
+"width" : "24",
+"lwh_uom" : "M",
+"net_weight" : "27",
+"gross_weight" : "26",
+"weight_uom" : "KG",
+"liquid_volume" : "",
+"liquid_volume_uom" : "",
+"tare_weight" : "",
+"tare_type" : ""
+}, {
+"dimType" : "SQUEEZE",
+"height" : "0",
+"length" : "0",
+"width" : "0",
+"lwh_uom" : "",
+"net_weight" : "",
+"gross_weight" : "",
+"weight_uom" : "",
+"liquid_volume" : "",
+"liquid_volume_uom" : "",
+"tare_weight" : "",
+"tare_type" : ""
+}, {
+"dimType" : "DISPLAY",
+"height" : "103",
+"length" : "101",
+"width" : "102",
+"lwh_uom" : "CM",
+"net_weight" : "",
+"gross_weight" : "",
+"weight_uom" : "",
+"liquid_volume" : "",
+"liquid_volume_uom" : "",
+"tare_weight" : "",
+"tare_type" : ""
+} ],
+"PickupLeadTime" : "1",
+"Ti" : "29",
+"Hi" : "30"
+} ],
+"ItemVolumeQantityClassificationTH" : "กก.",
+"Locations" : [ {
+"Locationlist" : [ 809 ],
+"WHlist" : [ ]
+} ],
+"planogramStatus" : "Is Planogram",
+"ItemPlanogram" : {
+"displayFormat" : "Location+Facing",
+"displayType" : "PDQ",
+"pdqVersion" : "V1: Suplier Case",
+"itemAmountInPDQ_Width" : 10,
+"itemAmountInPDQ_Length" : 9,
+"itemAmountInPDQ_Height" : 11,
+"strategicProduct" : false,
+"ownBrand" : false,
+"cdtAttributeInformation" : {
+"groupEN" : "Soju Peach Korean Alcoholic Beverage Fruity Aromaa",
+"typeEN" : "Alcoholic Beverage",
+"packaging" : "Sack",
+"packSize" : "14",
+"weight" : "10.00 Can",
+"weightValue" : 10,
+"weightUnit" : "Can",
+"volume" : "12.00 ml",
+"volumeValue" : 12,
+"volumeUnit" : "ml",
+"capacity" : "13.00 L",
+"capacityValue" : 13,
+"capacityUnit" : "L",
+"flavor" : "Original",
+"smell" : "Peach Blossom",
+"colorPattern" : "Purple",
+"Size" : [ {
+"nameEN" : "S"
+}, {
+"nameEN" : "M"
+}, {
+"nameEN" : "L"
+} ],
+"Variants" : [ {
+"nameEN" : "B"
+}, {
+"nameEN" : "O"
+} ]
+}
+},
+"images" : [ {
+"name" : "front_mu",
+"url" : "https://mspsit2.s3.ap-southeast-1.amazonaws.com/planogram/N_N402510001100_MU.1.jpeg"
+}, {
+"name" : "side_mu",
+"url" : "https://mspsit2.s3.ap-southeast-1.amazonaws.com/planogram/N_N402510001100_MU.2.jpeg"
+}, {
+"name" : "top_mu",
+"url" : "https://mspsit2.s3.ap-southeast-1.amazonaws.com/planogram/N_N402510001100_MU.3.jpeg"
+}, {
+"name" : "mu",
+"url" : "https://mspsit2.s3.ap-southeast-1.amazonaws.com/planogram/N_N402510001100_MU_1.jpeg"
+}, {
+"name" : "front_pdq",
+"url" : "https://mspsit2.s3.ap-southeast-1.amazonaws.com/planogram/N_N402510001100_PDQ.1.jpeg"
+}, {
+"name" : "side_pdq",
+"url" : "https://mspsit2.s3.ap-southeast-1.amazonaws.com/planogram/N_N402510001100_PDQ.2.jpg"
+}, {
+"name" : "top_pdq",
+"url" : "https://mspsit2.s3.ap-southeast-1.amazonaws.com/planogram/N_N402510001100_PDQ.3.jpg"
+} ],
+"HasPackItems" : "N",
+"PackDetails" : [ ]
+}
+}

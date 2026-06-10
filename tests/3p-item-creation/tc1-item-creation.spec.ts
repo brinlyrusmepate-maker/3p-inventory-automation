@@ -22,7 +22,7 @@ async function waitForDbResult(query: () => Promise<any[]>, timeoutMs = 300000) 
 
 test.describe.serial('3P Item Creation', () => {
   test('TC1 - Create Item Success via API', async () => {
-    test.setTimeout(420000);
+    test.setTimeout(480000);
 
     const apiContext = await request.newContext();
 
@@ -142,22 +142,60 @@ test.describe.serial('3P Item Creation', () => {
 
     console.log('DB2 Validation Success');
 
-    // Step 8: Validate DB3
-    // TODO
+    const itemNumber = db2Result[0].ITEM;
 
-    // Step 9: Validate DB4
-    // TODO
+    expect(itemNumber).toBeTruthy();
+
+    console.log('Created Item Number =', itemNumber);
+
+    // Step 8: Validate DB3 - RMS132.ITEM_MASTER
+    console.log('Step 8: Validate DB3 - RMS132.ITEM_MASTER');
+
+    const db3Result = await waitForDbResult(() =>
+      executeQuery(`
+        SELECT *
+        FROM RMS132.ITEM_MASTER
+        WHERE ITEM = '${itemNumber}'
+      `)
+    );
+
+    console.log('DB3 Result =', db3Result);
+
+    expect(db3Result.length).toBeGreaterThan(0);
+
+    console.log('DB3 Validation Success');
+
+    // Step 9: Validate DB4 - RMS132.UDA_ITEM_FF
+    console.log('Step 9: Validate DB4 - RMS132.UDA_ITEM_FF');
+
+    const db4Result = await waitForDbResult(() =>
+      executeQuery(`
+        SELECT *
+        FROM RMS132.UDA_ITEM_FF
+        WHERE ITEM = '${itemNumber}'
+        AND UDA_ID = 8001
+      `)
+    );
+
+    console.log('DB4 Result =', db4Result);
+
+    expect(db4Result.length).toBeGreaterThan(0);
+
+    console.log('DB4 Validation Success');
 
     // Step 10: Call CFA Kafka
     // TODO
 
-    // Step 11: Validate DB5
+    // Step 11: Validate DB5 - RMS132.ITEM_LOC
     // TODO
 
-    // Step 12: Validate RDS
+    // Step 12: Validate DB6 - RMS132.ITEM_LOC_CFA_EXT
     // TODO
 
-    // Step 13: Validate Elasticsearch
+    // Step 13: Validate RDS
+    // TODO
+
+    // Step 14: Validate Elasticsearch
     // TODO
   });
 });

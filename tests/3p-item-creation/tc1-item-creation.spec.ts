@@ -3,6 +3,18 @@ import 'dotenv/config';
 import fs from 'fs';
 import { executeQuery } from '../../helpers/oracle';
 
+// TC1 Phase 1: Create Item and validate RMS item creation flow
+//
+// Step 1: Get Token
+// Step 2: Create Item API
+// Step 3: Validate API Response
+// Step 4: Validate DB1 - MAKRO_STG_ITEM_HEADER
+// Step 5: Validate DB2 - MAKRO_ITEM_HEADER_REPORT
+// Step 6: Validate DB3 - RMS132.ITEM_MASTER
+// Step 7: Validate DB4 - RMS132.UDA_ITEM_FF
+// Step 8: Validate DB5 - RMS132.ITEM_LOC
+// Step 9: Save context for Phase 2
+
 async function waitForDbResult(query: () => Promise<any[]>, timeoutMs = 300000) {
   const start = Date.now();
 
@@ -20,8 +32,8 @@ async function waitForDbResult(query: () => Promise<any[]>, timeoutMs = 300000) 
   return [];
 }
 
-test.describe.serial('3P Item Creation', () => {
-  test('TC1 - Create Item Success via API', async () => {
+test.describe.serial('TC1 Phase 1 - 3P Item Creation', () => {
+  test('Create item and validate DB1 to DB5', async () => {
     test.setTimeout(480000);
 
     const apiContext = await request.newContext();
@@ -122,11 +134,15 @@ test.describe.serial('3P Item Creation', () => {
     console.log('DB1 Result =', db1Result);
 
     expect(db1Result.length).toBeGreaterThan(0);
+    expect(db1Result[0].ITEM_REQUEST_NUMBER).toBe(
+      payload.Item.ItemRequestNumber
+    );
+    expect(db1Result[0].MESSAGE_EVENT_TYPE).toBe('CREATE_ITEM');
 
     console.log('DB1 Validation Success');
 
-    // Step 7: Validate DB2 - makro_item_header_report
-    console.log('Step 7: Validate DB2 - makro_item_header_report');
+    // Step 7: Validate DB2 - MAKRO_ITEM_HEADER_REPORT
+    console.log('Step 7: Validate DB2 - MAKRO_ITEM_HEADER_REPORT');
 
     const db2Result = await waitForDbResult(() =>
       executeQuery(`
@@ -139,13 +155,12 @@ test.describe.serial('3P Item Creation', () => {
     console.log('DB2 Result =', db2Result);
 
     expect(db2Result.length).toBeGreaterThan(0);
-
-    console.log('DB2 Validation Success');
+    expect(db2Result[0].ITEM_REQ_NO).toBe(payload.Item.ItemRequestNumber);
+    expect(db2Result[0].ITEM).toBeTruthy();
 
     const itemNumber = db2Result[0].ITEM;
 
-    expect(itemNumber).toBeTruthy();
-
+    console.log('DB2 Validation Success');
     console.log('Created Item Number =', itemNumber);
 
     // Step 8: Validate DB3 - RMS132.ITEM_MASTER
@@ -162,6 +177,7 @@ test.describe.serial('3P Item Creation', () => {
     console.log('DB3 Result =', db3Result);
 
     expect(db3Result.length).toBeGreaterThan(0);
+    expect(String(db3Result[0].ITEM)).toBe(String(itemNumber));
 
     console.log('DB3 Validation Success');
 
@@ -173,7 +189,6 @@ test.describe.serial('3P Item Creation', () => {
         SELECT *
         FROM RMS132.UDA_ITEM_FF
         WHERE ITEM = '${itemNumber}'
-        AND UDA_ID = 8001
       `)
     );
 
@@ -181,21 +196,57 @@ test.describe.serial('3P Item Creation', () => {
 
     expect(db4Result.length).toBeGreaterThan(0);
 
+    const uda8001 = db4Result.find(
+      (row: any) => Number(row.UDA_ID) === 8001
+    );
+
+    expect(uda8001).toBeTruthy();
+    expect(String(uda8001.ITEM)).toBe(String(itemNumber));
+    expect(String(uda8001.UDA_TEXT)).toContain('3P');
+
     console.log('DB4 Validation Success');
 
-    // Step 10: Call CFA Kafka
-    // TODO
+    // Step 10: Validate DB5 - RMS132.ITEM_LOC
+    console.log('Step 10: Validate DB5 - RMS132.ITEM_LOC');
 
-    // Step 11: Validate DB5 - RMS132.ITEM_LOC
-    // TODO
+    const loc = '809';
 
-    // Step 12: Validate DB6 - RMS132.ITEM_LOC_CFA_EXT
-    // TODO
+    const db5Result = await waitForDbResult(() =>
+      executeQuery(`
+        SELECT *
+        FROM RMS132.ITEM_LOC
+        WHERE ITEM = '${itemNumber}'
+        AND LOC = ${loc}
+      `)
+    );
 
-    // Step 13: Validate RDS
-    // TODO
+    console.log('DB5 Result =', db5Result);
 
-    // Step 14: Validate Elasticsearch
-    // TODO
+    expect(db5Result.length).toBeGreaterThan(0);
+    expect(String(db5Result[0].ITEM)).toBe(String(itemNumber));
+    expect(Number(db5Result[0].LOC)).toBe(Number(loc));
+
+    console.log('DB5 Validation Success');
+
+    // Step 11: Save context for Phase 2 - CFA Kafka
+    console.log('Step 11: Save context for Phase 2');
+
+    const context = {
+      itemRequestNumber: payload.Item.ItemRequestNumber,
+      itemNumber,
+      loc,
+      groupId: 150,
+      kafkaTopic: 'erp.bcp.cfa',
+    };
+
+    fs.mkdirSync('.run-state', { recursive: true });
+
+    fs.writeFileSync(
+      '.run-state/tc1-context.json',
+      JSON.stringify(context, null, 2)
+    );
+
+    console.log('Saved context =', JSON.stringify(context, null, 2));
+    console.log('TC1 Phase 1 Completed Successfully');
   });
 });

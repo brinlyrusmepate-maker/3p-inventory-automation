@@ -1,7 +1,8 @@
 {
-  "itemRequestNumber": "N1781198919926",
-  "itemNumber": "669539",
+  "itemRequestNumber": "N1781201268314",
+  "itemNumber": "669714",
   "loc": "809",
   "groupId": 150,
+  "number11": 4000,
   "kafkaTopic": "erp.bcp.cfa"
 }

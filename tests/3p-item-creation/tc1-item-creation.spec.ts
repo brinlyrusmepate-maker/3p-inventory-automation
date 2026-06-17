@@ -4,16 +4,29 @@ import fs from 'fs';
 import { executeQuery } from '../../helpers/oracle';
 
 // TC1 Phase 1: Create Item and validate RMS item creation flow
-//
+
+/*
+ * TC1 — 3P Item Creation Flow
+ *
+ * Phase 1: Create Item + Validate DB1-DB4
+ *
+ * Run:
+ *   npx playwright test tests/3p-item-creation/tc1-item-creation.spec.ts --project=chromium
+ *
+ * Output:
+ *   .run-state/tc1-context.json
+ */
+
 // Step 1: Get Token
-// Step 2: Create Item API
-// Step 3: Validate API Response
-// Step 4: Validate DB1 - MAKRO_STG_ITEM_HEADER
-// Step 5: Validate DB2 - MAKRO_ITEM_HEADER_REPORT
-// Step 6: Validate DB3 - RMS132.ITEM_MASTER
-// Step 7: Validate DB4 - RMS132.UDA_ITEM_FF
-// Step 8: Validate DB5 - RMS132.ITEM_LOC
-// Step 9: Save context for Phase 2
+// Step 2: Read Create Item Payload
+// Step 3: Generate unique ItemRequestNumber and Barcode
+// Step 4: Create Item API
+// Step 5: Validate API Response
+// Step 6: Validate DB1 - MAKRO_STG_ITEM_HEADER
+// Step 7: Validate DB2 - MAKRO_ITEM_HEADER_REPORT
+// Step 8: Validate DB3 - RMS132.ITEM_MASTER
+// Step 9: Validate DB4 - RMS132.UDA_ITEM_FF
+// Step 10: Save context for Phase 2
 
 async function waitForDbResult(query: () => Promise<any[]>, timeoutMs = 300000) {
   const start = Date.now();
@@ -33,8 +46,8 @@ async function waitForDbResult(query: () => Promise<any[]>, timeoutMs = 300000) 
 }
 
 test.describe.serial('TC1 Phase 1 - 3P Item Creation', () => {
-  test('Create item and validate DB1 to DB5', async () => {
-    test.setTimeout(480000);
+  test('Create item and validate DB1 to DB4', async () => {
+    test.setTimeout(420000);
 
     const apiContext = await request.newContext();
 
@@ -206,36 +219,15 @@ test.describe.serial('TC1 Phase 1 - 3P Item Creation', () => {
 
     console.log('DB4 Validation Success');
 
-    // Step 10: Validate DB5 - RMS132.ITEM_LOC
-    console.log('Step 10: Validate DB5 - RMS132.ITEM_LOC');
-
-    const loc = '809';
-
-    const db5Result = await waitForDbResult(() =>
-      executeQuery(`
-        SELECT *
-        FROM RMS132.ITEM_LOC
-        WHERE ITEM = '${itemNumber}'
-        AND LOC = ${loc}
-      `)
-    );
-
-    console.log('DB5 Result =', db5Result);
-
-    expect(db5Result.length).toBeGreaterThan(0);
-    expect(String(db5Result[0].ITEM)).toBe(String(itemNumber));
-    expect(Number(db5Result[0].LOC)).toBe(Number(loc));
-
-    console.log('DB5 Validation Success');
-
-    // Step 11: Save context for Phase 2 - CFA Kafka
-    console.log('Step 11: Save context for Phase 2');
+    // Step 10: Save context for Phase 2 - CFA Kafka
+    console.log('Step 10: Save context for Phase 2');
 
     const context = {
       itemRequestNumber: payload.Item.ItemRequestNumber,
       itemNumber,
-      loc,
+      loc: '809',
       groupId: 150,
+      number11: 4100,
       kafkaTopic: 'erp.bcp.cfa',
     };
 

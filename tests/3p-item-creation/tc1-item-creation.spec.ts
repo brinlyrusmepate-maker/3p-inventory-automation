@@ -3,6 +3,17 @@ import 'dotenv/config';
 import fs from 'fs';
 import { executeQuery } from '../../helpers/oracle';
 
+
+/**
+ TC1 End-to-End 3P Item Creation Flow สำเร็จ 100%
+
+Phase 1  Create Item + DB1-DB4 
+Phase 2A Produce CFA Kafka 
+Phase 2B Validate RMS DB5/DB6 
+Phase 3  Validate 3P RDS 
+Phase 4  Validate Elasticsearch makrosoh 
+/** */
+
 // TC1 Phase 1: Create Item and validate RMS item creation flow
 
 /*
@@ -27,6 +38,7 @@ import { executeQuery } from '../../helpers/oracle';
 // Step 8: Validate DB3 - RMS132.ITEM_MASTER
 // Step 9: Validate DB4 - RMS132.UDA_ITEM_FF
 // Step 10: Save context for Phase 2
+
 
 async function waitForDbResult(query: () => Promise<any[]>, timeoutMs = 300000) {
   const start = Date.now();
